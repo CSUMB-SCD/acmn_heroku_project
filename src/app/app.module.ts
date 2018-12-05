@@ -2,7 +2,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
@@ -15,6 +14,11 @@ import { FooterComponent } from './footer/footer.component';
 import { PhonesComponent } from './phones/phones.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MessagesComponent } from './messages/messages.component';
+import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { CookieService } from 'ngx-cookie-service';
+
+
 const appRoutes: Routes = [
   {path: 'Home', component: HomePageComponent},
   {path: '', redirectTo: '/Home', pathMatch: 'full'},
@@ -42,8 +46,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     PhonesComponent,
-    MessagesComponent,
-
+    MessagesComponent
     ],
   imports: [
     RouterModule.forRoot(
@@ -51,11 +54,12 @@ const appRoutes: Routes = [
       {enableTracing: true} // debugging purposes only
     ),
     BrowserModule,
-    NgbModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

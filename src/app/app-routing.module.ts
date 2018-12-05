@@ -8,7 +8,7 @@ import { ProductsPageComponent } from './products-page/products-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 
 const routes: Routes = [
-  { path: 'phones', component: PhonesComponent },
+  { path: 'phones', component: ProductsPageComponent },
   { path: 'Details/:id', component: DetailsPageComponent },
   { path: 'Products', component: ProductsPageComponent},
   { path: 'SignIn', component: SignInPageComponent},
