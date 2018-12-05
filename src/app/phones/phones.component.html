@@ -1,12 +1,19 @@
 <div *ngIf="phones$">
-  <div *ngFor="let p of phones$.phones"> 
-    <div class = "row">
-      <div class ="column"> <img src = {{p.picture.lowRes}}> </div>
-      <a routerLink="/Details/{{p.id}}"><b>{{p.name.name}}</b> </a>
-      <div class ="column"> <h4>{{p.qty.quantity}} in stock</h4></div>
-      <div class ="column"> <h4>{{p.price.price}}</h4></div>
-      <button  ng-click = "alert('AddToCart')">Add To Cart</button>
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let p of phones$.phones"> 
+        <div class="col-lg d-flex">
+          <div class="card flex-fill h-100" style="width:14rem">
+            <div class="card-body" routerLink="/Details/{{p.id}}">
+              <img class="card-img-top" src = {{p.picture.lowRes}}>
+              <h3 class="card-link">{{p.name}}</h3>
+              <h4 class="card-text">{{p.qty}} in stock</h4>
+              <h4 class="card-text">{{p.price}}</h4>
+            </div>
+            <button class="btn btn-primary" (click)="addToCart(p.id, 1)">Add To Cart</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
