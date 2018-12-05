@@ -12,17 +12,19 @@ import { Location } from '@angular/common';
 export class DetailsPageComponent implements OnInit {
 @Input()
 
-  phone$: Phone;
+  phone_id$: string;
+  phone: Phone;
+
   constructor( private route: ActivatedRoute,
     // tslint:disable-next-line:no-shadowed-variable
     private Phone: PhoneService, private location: Location) {
-      this.route.params.subscribe( params => this.phone$ = params.id);
+      this.route.params.subscribe( params => this.phone_id$ = params.id);
     }
 
   ngOnInit(): void {
-    this.Phone.getPhone(this.phone$).subscribe(
+    this.Phone.getPhone(this.phone_id$).subscribe(
       // tslint:disable-next-line:no-shadowed-variable
-      Phone => this.phone$ = Phone
+      Phone => this.phone = Phone
     );
   }
 }
