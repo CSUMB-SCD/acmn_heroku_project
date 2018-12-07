@@ -16,5 +16,5 @@ export interface Checkout {
   }
   interface Item{
     product: String;
-    quantity: Number;
+    quantity: number;
   }

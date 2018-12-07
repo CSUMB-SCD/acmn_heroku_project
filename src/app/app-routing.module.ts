@@ -1,3 +1,4 @@
+import { ConfirmationPageComponent } from './confirmation-page/confirmation-page.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { PhonesComponent } from './phones/phones.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'Details/:id', component: DetailsPageComponent },
   { path: 'Products', component: ProductsPageComponent},
   { path: 'SignIn', component: SignInPageComponent},
-  { path: 'Checkout', component: CheckoutPageComponent}
+  { path: 'Checkout', component: CheckoutPageComponent},
+  { path: 'Confirmation', component: ConfirmationPageComponent}
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

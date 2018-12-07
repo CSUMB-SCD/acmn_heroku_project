@@ -44,17 +44,7 @@ overflow:scroll;
 }
 
 a{
-padding-inline-start: 5%;
-padding-inline-end: 5%;
-padding-left: 3%;
-padding-top: 3%;
-float: left;
-width: 30%;
-padding: 3%;
-color: #565264;
-font-size: 35px;
-text-align: center;
-margin: 35%;
+
 
 }
 
@@ -75,3 +65,24 @@ footer {
   }
 
  
+  .column {
+    float: left;
+    width: 20%;
+    padding: 3%;
+  }
+  
+  h4{
+    display:inline;
+    padding-inline-start: 5%;
+    padding-inline-end: 5%;
+    color: #191D32;
+  }
+  a,{
+    color: #841c26;
+    font-size: 20px;
+    background-color:white;
+    align-content: center;
+    margin-left: 46%;
+  
+  
+  }
