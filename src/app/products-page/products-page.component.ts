@@ -12,10 +12,5 @@ export class ProductsPageComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  public addToCart(id: string, qty: number){
-    this.cartService.addToCart(id, qty).subscribe(
-        
-    )
-  }
 }
+

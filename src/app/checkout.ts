@@ -1,7 +1,7 @@
 export interface Checkout {
-    product: Id;
-    quantity: Quantity;
- 
+    id: String;
+    username: Username;
+    items: Map<String, Item>;
   }
   
 
@@ -10,4 +10,11 @@ export interface Checkout {
   }
   interface Id{
     id: string;
+  }
+  interface Username{
+    username: String;
+  }
+  interface Item{
+    product: String;
+    quantity: Number;
   }
