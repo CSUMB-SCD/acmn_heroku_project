@@ -5,6 +5,8 @@ import { Phone } from './../phone';
 import { Component, OnInit } from '@angular/core';
 import { PhoneList } from '../PhoneList';
 import { CartItem } from '../CartItem';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 
 
@@ -17,9 +19,12 @@ export class CheckoutPageComponent implements OnInit {
   items: CartItem[] = [];
   loading = true;
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(private phoneService: PhoneService, private cartService: CartService) { }
+  constructor(private phoneService: PhoneService, private cartService: CartService, private cookieService: CookieService, private router: Router) { }
   total = 0;
   ngOnInit() {
+    if(!this.cookieService.get("user")){
+      this.router.navigate(["/signin"])
+    }
     this.getPhones();
     console.log(this.items)
     this.loading=false;
