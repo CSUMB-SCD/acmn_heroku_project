@@ -24,6 +24,9 @@ export class SignInPageComponent implements OnInit {
   }
   authUser(){
     this.submitted = true;
+    if(this.user.password == ""){
+      return;
+    }
     this.userService.authUser(this.user.username).subscribe(
       result => {},
       error => {
