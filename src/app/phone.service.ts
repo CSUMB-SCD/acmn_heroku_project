@@ -16,7 +16,7 @@ export class PhoneService {
     return this.http.get<PhoneList>('https://freedomphones-db-microservice.herokuapp.com/allPhones');
   }
 
-   getPhone(id) : Observable<Phone>{
+  getPhone(id) : Observable<Phone>{
     return this.http.get<Phone>('https://freedomphones-zuul-svc.herokuapp.com/phone-service/findById/' + id);
   }
 }
