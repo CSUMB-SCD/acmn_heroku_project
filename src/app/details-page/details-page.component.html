@@ -3,15 +3,12 @@
  <div *ngIf="phone">
  
   <h1><u>{{phone.name}} Phone Details</u></h1>
-  <div>
+  <div class="center">
   <div class ="column"><img src = {{phone.picture.highRes}}> </div>
   <div class ="column1"><h4><u>Description:</u> {{phone.description}} </h4> </div>
   <div class="column1"> <h4><u>Price:</u> ${{phone.price}}</h4> </div>
   <div class="column1"><h4><u>Quantity: </u>{{phone.qty}}</h4></div>
-  <div class="column1"><h4><u>Buy: </u> </h4>
-    <div class="input-group">
-        <div class ="input"><input id="qunatityWanted" type="text" class="form-control" name="qunatityWanted" placeholder="Enter a number"></div>
-        </div> </div>
+  <div class="column1"><h4><u>Buy: </u> <input type="number" min=1 max={{phone.qty}}></h4>
 </div>
 <a routerLink="/Products"> Back to Products Page </a>
 </div>
