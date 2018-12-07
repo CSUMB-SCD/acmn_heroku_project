@@ -1,9 +1,9 @@
 export interface Phone {
   name: String;
-  price: Number;
+  price: number;
   description: String;
   picture: Image;
-  qty: Number;
+  qty: number;
   id: String;
 }
 interface Image{

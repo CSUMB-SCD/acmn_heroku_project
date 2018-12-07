@@ -18,7 +18,7 @@ export class CheckoutPageComponent implements OnInit {
   loading = true;
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private phoneService: PhoneService, private cartService: CartService) { }
-
+  total = 0;
   ngOnInit() {
     this.getPhones();
     console.log(this.items)
@@ -33,6 +33,7 @@ export class CheckoutPageComponent implements OnInit {
           Item => {
             let new_item = new CartItem(Item, response.items[item].quantity);
             this.items.push(new_item);
+            this.total = this.total + new_item.phone.price;
           },
           error => {console.log(error)}
         )
@@ -44,4 +45,10 @@ export class CheckoutPageComponent implements OnInit {
     () => {
     }
    )};
+
+   getCost = function(item) {
+    return item.qty * item.price;
+  };
+
+  
 }
