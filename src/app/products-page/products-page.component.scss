@@ -2,11 +2,15 @@ h1{
   padding-top: 50px;
   text-align:center;
   padding-bottom: 25px;
+  color: #191D32;
 }
 
 html,body {
   overflow: visible;
+  text-align: center;
+  align-content: center;
   }
+
 footer {
     position: absolute;
     left: 0;
@@ -15,7 +19,7 @@ footer {
     width: 100%;
     overflow: hidden;
     }
-    button{
+  button{
       color: #841c26;
       font-size: 20px;
       border-radius: 2px;
@@ -24,8 +28,13 @@ footer {
       background-color:white;
       height:90px;
       align-content: center;
+      margin-left: 45%;
 
       }
 app-phones{
   margin: auto;
+}
+
+a{
+  text-align: center;
 }
