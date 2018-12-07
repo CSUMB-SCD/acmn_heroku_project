@@ -4,23 +4,44 @@ import { PhoneService } from './../phone.service';
 import { Phone } from './../phone';
 import { Component, OnInit } from '@angular/core';
 import { PhoneList } from '../PhoneList';
+import { CartItem } from '../CartItem';
+
+
+
 @Component({
   selector: 'app-checkout-page',
   templateUrl: './checkout-page.component.html',
   styleUrls: ['./checkout-page.component.scss']
 })
 export class CheckoutPageComponent implements OnInit {
-  phones$: any;
+  items: CartItem[] = [];
+  loading = true;
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(private PhoneService: PhoneService, private cartService: CartService) { }
+  constructor(private phoneService: PhoneService, private cartService: CartService) { }
 
   ngOnInit() {
     this.getPhones();
+    console.log(this.items)
+    this.loading=false;
   }
 
   getPhones() {
     this.cartService.getItems().subscribe(
-      // tslint:disable-next-line:no-shadowed-variable
-      Phone => this.phones$ = Phone);
-   }
+    response => {
+      for(let item in response.items){
+        this.phoneService.getPhone(item).subscribe(
+          Item => {
+            let new_item = new CartItem(Item, response.items[item].quantity);
+            this.items.push(new_item);
+          },
+          error => {console.log(error)}
+        )
+      }
+    },
+    error => {
+
+    },
+    () => {
+    }
+   )};
 }

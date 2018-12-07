@@ -1,5 +1,5 @@
 import { Phone } from "./phone";
 
-export interface PhoneList {
+export class PhoneList {
     phones: Phone[];
   }
