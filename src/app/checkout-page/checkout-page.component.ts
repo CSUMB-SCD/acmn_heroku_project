@@ -22,7 +22,7 @@ export class CheckoutPageComponent implements OnInit {
   loading = true;
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private phoneService: PhoneService, private cartService: CartService, private cookieService: CookieService, private router: Router
-    ,private messageService: MessageService, private checkoutService: CheckoutService) { }
+    ,private messageService: MessageService, public checkoutService: CheckoutService) { }
   total = 0;
   ngOnInit() {
     if(!this.cookieService.get("user")){
@@ -113,8 +113,6 @@ checkout(){
       }
     }
   )
- 
-
 }
   
 
