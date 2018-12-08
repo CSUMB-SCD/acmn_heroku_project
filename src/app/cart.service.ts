@@ -29,6 +29,10 @@ export class CartService {
     let url = "https://freedomphones-zuul-svc.herokuapp.com/cart-service/getCart/" + username;
     return this.http.get<Checkout>(url);
   }
-
+  deleteItems(id:string){
+    let username = this.cookieService.get("user");
+    let url = "https://freedomphones-zuul-svc.herokuapp.com/cart-service/deleteItem/" + username + "/" + id;
+    return this.http.get<Checkout>(url);
+  }
 
 }

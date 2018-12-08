@@ -1,3 +1,4 @@
+import { MessageService } from './../message.service';
 import { Checkout } from './../checkout';
 import { CartService } from './../cart.service';
 import { PhoneService } from './../phone.service';
@@ -7,6 +8,7 @@ import { PhoneList } from '../PhoneList';
 import { CartItem } from '../CartItem';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { toBase64String } from '@angular/compiler/src/output/source_map';
 
 
 
@@ -19,7 +21,8 @@ export class CheckoutPageComponent implements OnInit {
   items: CartItem[] = [];
   loading = true;
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(private phoneService: PhoneService, private cartService: CartService, private cookieService: CookieService, private router: Router) { }
+  constructor(private phoneService: PhoneService, private cartService: CartService, private cookieService: CookieService, private router: Router
+    ,private MessageService: MessageService) { }
   total = 0;
   ngOnInit() {
     if(!this.cookieService.get("user")){
@@ -62,6 +65,45 @@ export class CheckoutPageComponent implements OnInit {
 
   }
 
- 
+  public getTotal(){  
+    window.location.href = '/Checkout';
+
+    return;
+  }
+
+  removeItem(id:string){
+    this.cartService.deleteItems(id).subscribe(
+      result => {
+        console.log(result);
+      },
+      error => {
+      
+      },
+      () => {
+      
+      }
+    );
+
+
+  }
+
+
+  updateCart(buying:number, id:string){
+   this.removeItem(id);
+
+  this.cartService.addToCart(id,buying).subscribe(
+    result => {
+      console.log(result);
+    },
+    error => {
+    
+    },
+    () => {
+    
+    }
+    );
+
+    }
+  
 
 }

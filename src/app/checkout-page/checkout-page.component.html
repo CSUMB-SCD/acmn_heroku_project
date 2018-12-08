@@ -8,10 +8,19 @@
     <div class="column"><img src={{p.phone.picture.lowRes}}> </div>
     <div class="column"><h4> Name: {{p.phone.name}} </h4></div>
     <div class = "column"><h4> Quantity: {{p.buying}} </h4> </div>
+    <div class ="column1" > <div class = "column"><input type="number" [(ngModel)]=p.buying value = {{p.buying}} min=1 max={{p.phone.qty}}></div>
+     <button type="submit" class="btn btn-primary" (click)=updateCart(p.buying,p.phone.id)>Update</button>
+     <br/>
+     <br/>
+     <br/>
+     <br/>
+     <button type="submit" class="btn btn-primary" (click)=removeItem(p.phone.id)>Remove</button>
+    </div>
+     
     <div class ="column"> <h4> Total: {{ p.buying * p.phone.price | currency }}</h4></div>
     </div>  
 </div>
 </div>
 
-<h2> Total ${{total}}</h2>
+<h2>  Total ${{total}}</h2>
 
