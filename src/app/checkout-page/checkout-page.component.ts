@@ -8,8 +8,8 @@ import { PhoneList } from '../PhoneList';
 import { CartItem } from '../CartItem';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { toBase64String } from '@angular/compiler/src/output/source_map';
-
+import { CheckoutService } from '../checkout.service';
+import { ErrorList } from '../ErrorList';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class CheckoutPageComponent implements OnInit {
   loading = true;
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private phoneService: PhoneService, private cartService: CartService, private cookieService: CookieService, private router: Router
-    ,private MessageService: MessageService) { }
+    ,private messageService: MessageService, private checkoutService: CheckoutService) { }
   total = 0;
   ngOnInit() {
     if(!this.cookieService.get("user")){
@@ -58,17 +58,11 @@ export class CheckoutPageComponent implements OnInit {
     return item.qty * item.price;
   };
 
-  addItem(id:string, amount: number){
-    console.log(id)
-    console.log(amount)
-    return;
-
-  }
-
   public getTotal(){  
-    window.location.href = '/Checkout';
-
-    return;
+    this.total = 0;
+    for(let item of this.items){
+      this.total += item.buying * item.phone.price
+    }
   }
 
   removeItem(id:string){
@@ -99,11 +93,29 @@ export class CheckoutPageComponent implements OnInit {
     
     },
     () => {
-    
     }
     );
-
+    this.getTotal();
     }
+
+checkout(){
+  this.messageService.clear()
+  this.checkoutService.checkout().subscribe(
+    errs => {
+      if(!errs.empty){
+        let err_strings = errs.errors;
+        for(let err in err_strings){
+          this.messageService.add(err_strings[err]);
+        }
+      }
+      else{
+        this.router.navigate(["/confirmation"])
+      }
+    }
+  )
+ 
+
+}
   
 
 }

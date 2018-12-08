@@ -1,4 +1,12 @@
-
+.btn-primary{
+  color: #841c26;
+  font-size: 20px;
+  border-radius: 2px;
+  border: none;
+  text-align: center;
+  background-color:white;
+  height:90px;
+}
 
 img{
   width: 200px;
@@ -12,6 +20,9 @@ h2{
 .container{
 padding-top: 4%;
 text-align: center;
+}
+.top{
+  text-align: center;
 }
 
 h4{
@@ -77,13 +88,4 @@ footer {
     padding-inline-start: 5%;
     padding-inline-end: 5%;
     color: #191D32;
-  }
-  a{
-    color: #841c26;
-    font-size: 20px;
-    background-color:white;
-    align-content: center;
-    margin-left: 46%;
-  
-  
   }
