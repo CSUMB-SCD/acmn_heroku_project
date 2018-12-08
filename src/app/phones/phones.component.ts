@@ -32,7 +32,7 @@ export class PhonesComponent implements OnInit {
       Phone => this.phones$ = Phone
     )
   }
-  public addToCart(id: String, qty: Number): void {
+  public addToCart(id: String, qty: number): void {
     console.log(id);
     this.cartService.addToCart(id, qty).subscribe(
         result => {

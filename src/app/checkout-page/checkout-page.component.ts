@@ -38,7 +38,7 @@ export class CheckoutPageComponent implements OnInit {
           Item => {
             let new_item = new CartItem(Item, response.items[item].quantity);
             this.items.push(new_item);
-            this.total = this.total + new_item.phone.price;
+            this.total = this.total + (new_item.phone.price * new_item.buying);
           },
           error => {console.log(error)}
         )
@@ -55,5 +55,13 @@ export class CheckoutPageComponent implements OnInit {
     return item.qty * item.price;
   };
 
-  
+  addItem(id:string, amount: number){
+    console.log(id)
+    console.log(amount)
+    return;
+
+  }
+
+ 
+
 }

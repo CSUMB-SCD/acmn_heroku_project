@@ -9,14 +9,14 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class CartService {
-  addItem(id: Number, arg1: number): any {
+  addItem(id: number, arg1: number): any {
     throw new Error("Method not implemented.");
   }
 
   
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
-  public addToCart(id: String, qty: Number){
+  public addToCart(id: String, qty: number){
 
     let username = this.cookieService.get("user");
     let item = {"prod_id": id, "qty":qty};

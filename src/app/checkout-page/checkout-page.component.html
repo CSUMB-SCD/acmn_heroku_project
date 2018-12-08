@@ -4,14 +4,14 @@
 <h2>Shopping Cart</h2>
 <a routerLink = "/Confirmation" > Check out</a>
 <div *ngIf="!loading">
-  <div *ngFor="let p of items" id="row">
+  <div *ngFor="let p of items" let i={p.phone.id} id="row">
     <div class="column"><img src={{p.phone.picture.lowRes}}> </div>
     <div class="column"><h4> Name: {{p.phone.name}} </h4></div>
-    <div class = "column"><h4> Quantity: {{p.buying}}</h4></div>
+    <div class = "column"><h4> Quantity: {{p.buying}} </h4> </div>
     <div class ="column"> <h4> Total: {{ p.buying * p.phone.price | currency }}</h4></div>
-    <td>
-  </div>
+    </div>  
+</div>
 </div>
 
 <h2> Total ${{total}}</h2>
-n
+
